@@ -1,0 +1,98 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+.venv/
+venv/
+.env
+.env.*
+.pytest_cache/
+
+# Editors/OS
+.DS_Store
+.idea/
+.vscode/
+*.log
+
+# Build/Dist
+build/
+dist/
+*.egg-info/
+
+# Node (if ever used)
+node_modules/
+
+# Notebooks and checkpoints
+notebooks/
+.ipynb_checkpoints/
+*.ipynb
+
+# Cache/outputs (adjust as needed)
+*.cache
+*.tmp
+*.bak
+*.swp
+# Data files
+*.csv
+*.json
+*.jsonl
+*.txt
+
+# Media files
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.mp4
+*.mov
+*.avi
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/*
+
+# Python cache files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environment files
+.env
+.venv
+env/
+venv/
+ENV/
+
+# IDE files
+.idea/
+.vscode/
+.cursor/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Log files
+*.log
+
+# Temporary files
+*.tmp
+*.temp
+
+# Model files and large data
+*.pkl
+*.pickle
+*.h5
+*.hdf5
+*.model
+*.weights
+
+# API keys and secrets
+secrets.json
+config.json
+credentials.json notebooks/n.ipynb_checkpoints/nnotebooks/
+.ipynb_checkpoints/
