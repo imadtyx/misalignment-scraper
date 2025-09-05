@@ -1,18 +1,15 @@
-MisScrape
+mis-scrape
 =========
 
-MisScrape is a tool to:
+Catch shared chats. Recreate behavior. Compare.
 
 - scrape public/shared chat links (Gemini, ChatGPT, Claude, Grok) and common discussion threads (Twitter thread, Reddit posts, GitHub issues),
 - normalize them into a transcript ({ url, title, messages:[{role, content}] }), and
 - reproduce the conversation against a target model (via Anthropic/OpenAI/Gemini), writing an output JSON transcript (if successful).
 
-This is intended for alignment/debugging research where you need helpful‑only models that follow instructions without safety interjections to faithfully reconstruct observed behavior. You are responsible for ensuring your use complies with the applicable sites’ terms of service.
-
-Disclaimer
-----------
-
-- The tool assumes access to helpful‑only models (i.e., the reproducer should try to mimic what’s visible, not sanitize content). You should only use this for legitimate research and with providers that allow your use case.
+⚠️ Responsible Use
+-------------
+- For alignment/debugging research only. This tool relies on helpful‑only models that follow instructions without safety interjections to faithfully reproduce observed behavior. Use only with providers/content you’re allowed to process. You are responsible for complying with each site’s terms.
 
 Quickstart
 ----------
@@ -24,21 +21,22 @@ pip install -r requirements.txt
 python -m playwright install chromium
 ```
 
-2) Set API keys (at least one of these):
+2) Set API keys (any that apply)
 
 ```bash
 export ANTHROPIC_API_KEY=sk-ant-...
-# or LiteLLM compatible OpenAI keys as needed
+# optionally: OPENAI_API_KEY, GEMINI_API_KEY, GITHUB_TOKEN
 ```
 
-3) Run
+3) Run it your way
 
 ```bash
-python src/mis-scrape/main.py \
-  "https://gemini.google.com/share/XXXXXXXX" \
-  --model anthropic/claude-3-opus-20240229 \
-  --context "Extra hints or prior turns relevant to reproduction" \
-  --output reproduced.json
+# CLI
+python src/mis-scrape/main.py "https://gemini.google.com/share/XXXXXXXX" --model anthropic/claude-3-opus-20240229 --output reproduced.json
+
+# YAML config (single or batch)
+scripts/run_config.sh config.yaml
+scripts/run_batch_example.sh
 ```
 
 Outputs:
@@ -59,32 +57,7 @@ What URL types work?
 Notes
 -----
 
-- For long pages, the scraper scrolls and clusters DOM segments to recover turn boundaries; accuracy depends on the site’s markup.
-- For GitHub, set `GITHUB_TOKEN` to avoid low rate limits.
-- If you need to add new platforms, copy a scraper in `src/mis-scrape/scrape` and plug it into `src/mis-scrape/main.py`.
-
-Advanced
---------
-
-- Stepwise reproduction with max tries: when reproducing multi‑turn conversations, the library supports calling the target model turn‑by‑turn and retrying assistant generations up to a configured number of attempts. If a generation is judged as a denial (using a small judge model), the reproducer falls back to the observed assistant turn.
-
-Example (Python):
-
-```python
-import sys, pathlib
-
-# Make packages under src/mis-scrape importable
-sys.path.insert(0, str(pathlib.Path("src/mis-scrape").resolve()))
-
-from reproduce.Reproducer import Reproducer
-
-r = Reproducer()
-step = r.reproduce_stepwise(
-    original_msgs_dict={"messages": [...]},
-    model="anthropic/claude-3-opus-20240229",
-    judge_model="openai/gpt-4o-mini",   # optional
-    max_output_tokens=800,
-    max_tries=3,
-)
-```
+- Long pages are auto‑scrolled and segmented; output quality depends on site markup.
+- GitHub scraping works best with `GITHUB_TOKEN` set.
+- Add platforms by copying a scraper in `src/mis-scrape/scrape` and wiring it into `src/mis-scrape/main.py`.
 
