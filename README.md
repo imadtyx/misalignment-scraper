@@ -1,7 +1,7 @@
 mis-scrape: Catch shared chats. Recreate behavior. Compare.
 =========
 
-This repository houses mis-scrape — a small, focused utility for turning public/shared conversations into structured transcripts and then reproducing them against a target model. It supports popular sources (Gemini, ChatGPT, Claude, Grok, Reddit, GitHub issues), normalizes them into a unified { url, title, messages:[...] } shape, and outputs a JSON result from the target model for quick comparison and debugging.
+This repository houses mis-scrape — a tool developed for turning public/shared conversations into structured transcripts and then reproducing them against a target model. It supports popular sources (Gemini, ChatGPT, Claude, Grok, Reddit, GitHub issues), normalizes them into a unified { url, title, messages:[...] } shape, and outputs a JSON result from the target model for quick comparison and debugging.
 
 ⚠️ Responsible Use
 -------------
