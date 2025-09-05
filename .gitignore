@@ -114,11 +114,12 @@ notebooks/
 *.tmp
 *.bak
 *.swp
-# Data files
+# Data files (but keep requirements.txt tracked)
 *.csv
 *.json
 *.jsonl
 *.txt
+!requirements.txt
 
 # Media files
 *.png
