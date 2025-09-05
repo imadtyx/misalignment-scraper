@@ -34,11 +34,10 @@ export ANTHROPIC_API_KEY=sk-ant-...
 3) Run
 
 ```bash
-python -m src.mis_scrape.main \
+python src/mis-scrape/main.py \
   "https://gemini.google.com/share/XXXXXXXX" \
   --model anthropic/claude-3-opus-20240229 \
   --context "Extra hints or prior turns relevant to reproduction" \
-  --scraped-json scraped.json \
   --output reproduced.json
 ```
 
@@ -62,7 +61,7 @@ Notes
 
 - For long pages, the scraper scrolls and clusters DOM segments to recover turn boundaries; accuracy depends on the site’s markup.
 - For GitHub, set `GITHUB_TOKEN` to avoid low rate limits.
-- If you need to add new platforms, copy a scraper in `src/scrape` and plug it into `src/mis_scrape/main.py`.
+- If you need to add new platforms, copy a scraper in `src/mis-scrape/scrape` and plug it into `src/mis-scrape/main.py`.
 
 Advanced
 --------
@@ -72,7 +71,12 @@ Advanced
 Example (Python):
 
 ```python
-from src.reproduce.Reproducer import Reproducer
+import sys, pathlib
+
+# Make packages under src/mis-scrape importable
+sys.path.insert(0, str(pathlib.Path("src/mis-scrape").resolve()))
+
+from reproduce.Reproducer import Reproducer
 
 r = Reproducer()
 step = r.reproduce_stepwise(

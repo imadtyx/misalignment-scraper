@@ -5,29 +5,35 @@ import json
 import os
 import re
 import sys
+from pathlib import Path
 from typing import Any, Dict, List, Optional
+
+# Ensure local package imports work when running this script directly
+_CURRENT_DIR = Path(__file__).resolve().parent
+if str(_CURRENT_DIR) not in sys.path:
+    sys.path.insert(0, str(_CURRENT_DIR))
 
 # Scrapers
 try:
-    from src.scrape.scrapers.GeminiScraper import GeminiScraper  # type: ignore
+    from scrape.GeminiScraper import GeminiScraper  # type: ignore
 except Exception:
-    from src.scrape.scrapers.GeminiScraper import GeminiScraper  # noqa: F401
+    from scrape.GeminiScraper import GeminiScraper  # noqa: F401
 try:
-    from src.scrape.scrapers.ChatGPTScraper import ChatGPTScraper  # type: ignore
-    from src.scrape.scrapers.ClaudeScraper import ClaudeScraper  # type: ignore
-    from src.scrape.scrapers.GrokScraper import GrokScraper  # type: ignore
-except Exception:
-    pass
-try:
-    from src.scrape.RedditScraper import RedditScraper  # type: ignore
+    from scrape.ChatGPTScraper import ChatGPTScraper  # type: ignore
+    from scrape.ClaudeScraper import ClaudeScraper  # type: ignore
+    from scrape.GrokScraper import GrokScraper  # type: ignore
 except Exception:
     pass
 try:
-    from src.scrape.GithubScraper import GithubScraper  # type: ignore
+    from scrape.RedditScraper import RedditScraper  # type: ignore
+except Exception:
+    pass
+try:
+    from scrape.GithubScraper import GithubScraper  # type: ignore
 except Exception:
     pass
 
-from src.reproduce.Reproducer import Reproducer  # type: ignore
+from reproduce.Reproducer import Reproducer  # type: ignore
 
 
 def detect_platform(url: str) -> str:
@@ -152,7 +158,7 @@ def main(argv: Optional[List[str]] = None) -> int:
     # LiteLLM/OpenAI/Anthropic objects differ; try best-effort text
     try:
         # Anthropic path
-        from src.reproduce.Reproducer import Reproducer as _R  # type: ignore
+        from reproduce.Reproducer import Reproducer as _R  # type: ignore
         out_text = _R.extract_text(resp)
     except Exception:
         out_text = ""
