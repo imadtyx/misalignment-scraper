@@ -1,11 +1,7 @@
-mis-scrape
+mis-scrape: Catch shared chats. Recreate behavior. Compare.
 =========
 
-Catch shared chats. Recreate behavior. Compare.
-
-- scrape public/shared chat links (Gemini, ChatGPT, Claude, Grok) and common discussion threads (Twitter thread, Reddit posts, GitHub issues),
-- normalize them into a transcript ({ url, title, messages:[{role, content}] }), and
-- reproduce the conversation against a target model (via Anthropic/OpenAI/Gemini), writing an output JSON transcript (if successful).
+This repository houses mis-scrape — a small, focused utility for turning public/shared conversations into structured transcripts and then reproducing them against a target model. It supports popular sources (Gemini, ChatGPT, Claude, Grok, Reddit, GitHub issues), normalizes them into a unified { url, title, messages:[...] } shape, and outputs a JSON result from the target model for quick comparison and debugging.
 
 ⚠️ Responsible Use
 -------------

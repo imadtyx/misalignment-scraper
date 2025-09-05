@@ -104,9 +104,10 @@ dist/
 # Node (if ever used)
 node_modules/
 
-# Notebooks and checkpoints (track notebooks directory but ignore checkpoints and large outputs)
+# Notebooks and checkpoints (track notebooks, ignore checkpoints)
 !.gitkeep
 notebooks/.ipynb_checkpoints/
+!notebooks/*.ipynb
 *.ipynb
 
 # Cache/outputs (adjust as needed)
