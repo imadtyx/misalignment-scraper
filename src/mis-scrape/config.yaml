@@ -1,0 +1,9 @@
+url: "https://gemini.google.com/share/XXXXXXXX"
+model: "anthropic/claude-3-opus-20240229"
+context: "Extra hints or prior turns relevant to reproduction"
+# context_file: "./context.txt"
+scraped_json: "scraped.json"
+output: "reproduced.json"
+max_output_tokens: 2000
+temperature: 0.0
+

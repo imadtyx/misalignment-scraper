@@ -1,0 +1,15 @@
+jobs:
+  - url: "https://gemini.google.com/share/AAAAAA"
+    model: "anthropic/claude-3-opus-20240229"
+    output: "reproduced_gemini.json"
+  - url: "https://chat.openai.com/share/BBBBBB"
+    model: "openai/gpt-4o"
+    temperature: 0.2
+    max_output_tokens: 1500
+    output: "reproduced_chatgpt.json"
+  - url: "https://claude.ai/share/CCCCCC"
+    model: "anthropic/claude-3-sonnet-20240229"
+    context: "Addl context for this job"
+    scraped_json: "scraped_claude.json"
+    output: "reproduced_claude.json"
+
