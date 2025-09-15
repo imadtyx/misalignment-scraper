@@ -6,14 +6,14 @@ mis-scrape turns public/shared conversations into structured transcripts and rep
 Quickstart
 ----------
 
-1) Install
+### 1) Install
 
 ```bash
 pip install -r requirements.txt
 python -m playwright install chromium
 ```
 
-2) Set API keys (any that apply)
+### 2) Set API keys (any that apply)
 
 Set your API keys for the models and the platform you plan to use, e.g.:
 
@@ -22,7 +22,7 @@ export X_BEARER=...
 
 Alternatively, you can set the API keys in a `.env` file. See `.env.example` for an example.
 
-3) Scrape and reproduce a misalignment example
+### 3) Scrape and reproduce a misalignment example
 
 Use the mis-scrape CLI to scrape a public/shared URL and reproduce the conversation on a target model. You specify the source URL and a target `--model` (e.g., `claude-opus-4-1-20250805`). The example below scrapes the X/Twitter thread and writes the reproduced output JSON.
 
@@ -34,7 +34,7 @@ For a more complicated example with custom special instructions:
 ```bash
 python src/mis-scrape/main.py \
   --url "https://x.com/lefthanddraft/status/1945910430553313660" \
-  --model-role reproducer="anthropic/claude-3-opus-20240229" \
+  --model-role reproducer="claude-opus-4-1-20250805" \
   --model-role target="openai/gpt-4o" \
   --max-retries 3 \
   --additional-context "Please include referenced tweet URLs and keep answers concise." \
@@ -52,7 +52,7 @@ python src/mis-scrape/main.py --config config.yaml
 Outputs:
 
 - scraped.json: normalized transcript from the source URL
-- reproduced.json: JSON returned by the target model (or {"raw": "..."} if not valid JSON)
+- reproduced.json: JSON returned by the target model
 
 By default, transcripts are saved to `./outputs`. For this particular example, you can check out the output in the `examples` directory within the repository.
 
