@@ -18,29 +18,29 @@ python -m playwright install chromium
 Set your API keys for the models and the platform you plan to use, e.g.:
 ```bash
 export ANTHROPIC_API_KEY=...
+export OPENAI_API_KEY=...
 export X_BEARER=...
 ```
 Alternatively, you can set the API keys in a `.env` file. See `.env.example` for an example.
 
 ### 3) Scrape and reproduce a misalignment example
 
-Use the mis-scrape CLI to scrape a public/shared URL and reproduce the conversation on a target model. You specify the source URL and a target `--model` (e.g., `claude-opus-4-1-20250805`). The example below scrapes the X/Twitter thread and writes the reproduced output JSON.
+Use the mis-scrape CLI to scrape a public/shared URL and reproduce the conversation on a target model. You specify the source URL and a target model (e.g., `claude-opus-4-1-20250805`). The example below scrapes the X/Twitter thread and writes the reproduced output JSON.
 
 ```bash
-python src/mis-scrape/main.py "https://x.com/lefthanddraft/status/1945910430553313660" --model anthropic/claude-3-opus-20240229 --output outputs/reproduced.json
+python src/mis-scrape/main.py "https://x.com/lefthanddraft/status/1945910430553313660" --target anthropic/claude-3-opus-20240229 --output outputs/reproduced.json
 ```
 
 For a more complicated example with custom special instructions:
 ```bash
 python src/mis-scrape/main.py \
   --url "https://x.com/lefthanddraft/status/1945910430553313660" \
-  --model-role reproducer="claude-opus-4-1-20250805" \
-  --model-role target="openai/gpt-4o" \
-  --max-retries 3 \
-  --additional-context "Please include referenced tweet URLs and keep answers concise." \
-  --fail-on-error true \
+  --judge "claude-opus-4-1-20250805" \
+  --target "openai/gpt-4o" \
+  --max-retries 15 \
+  --additional-context "All of the user input should be extracted verbatim" \
+  --prefill-mode "sampled"
   --output-dir ./outputs \
-  --output reproduced_advanced.json
 ```
 
 Lastly, you can also run the same via a YAML config (single or batch jobs):
@@ -51,10 +51,23 @@ python src/mis-scrape/main.py --config config.yaml
 
 Outputs:
 
-- scraped.json: normalized transcript from the source URL
-- reproduced.json: JSON returned by the target model
+- `scraped.json`: normalized transcript from the source URL
+- `reproduced.json`: JSON returned by the target model
 
 By default, transcripts are saved to `./outputs`. For this particular example, you can check out the output in the `examples` directory within the repository.
+
+What URL types work?
+--------------------
+
+Currently, the tool supports 7 different platforms, and expects the link from the respective platforms to be passed in the following format:
+
+- X shared link: `https://x.com/<user>/status/<id>`
+- Reddit post (OP + comments): `https://www.reddit.com/r/.../comments/<id>/...`
+- GitHub issues: `https://github.com/<owner>/<repo>/issues/<number>`
+- Gemini shared links: `https://gemini.google.com/share/<id>`
+- ChatGPT shared links: `https://chat.openai.com/share/<id>`
+- Claude shared links: `https://claude.ai/share/<id>`
+- Grok shared links: `https://grok.com/share/<id>`
 
 Notes
 -----
