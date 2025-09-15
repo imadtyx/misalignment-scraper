@@ -25,7 +25,7 @@ Alternatively, you can set the API keys in a `.env` file. See `.env.example` for
 
 ### 3) Scrape and reproduce a misalignment example
 
-Use the mis-scrape CLI to scrape a public/shared URL and reproduce the conversation on a target model. You specify the source URL and a target model (e.g., `claude-opus-4-1-20250805`). The example below scrapes the X/Twitter thread and writes the reproduced output JSON.
+You can use the mis-scrape tool via CLI to scrape a public/shared URL and reproduce the conversation on a target model. You specify the source URL and a target model (e.g., `claude-opus-4-1-20250805`). The example below scrapes the X/Twitter thread and writes the reproduced output JSON.
 
 ```bash
 python src/mis-scrape/main.py "https://x.com/lefthanddraft/status/1945910430553313660" --target anthropic/claude-3-opus-20240229 --output outputs/reproduced.json
@@ -35,7 +35,7 @@ For a more complicated example with custom special instructions:
 ```bash
 python src/mis-scrape/main.py \
   --url "https://x.com/lefthanddraft/status/1945910430553313660" \
-  --judge "claude-opus-4-1-20250805" \
+  --scraper-agent "claude-opus-4-1-20250805" \
   --target "openai/gpt-4o" \
   --max-retries 15 \
   --additional-context "All of the user input should be extracted verbatim" \
