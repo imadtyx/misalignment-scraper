@@ -1,0 +1,51 @@
+{
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        { "type": "text", "text": "Conversation ID: 1945871634520211842\nTweets: 6" },
+        { "type": "text", "text": "1/6 • @arm1st1ce (armistice) • 2025-07-17T15:42:04.000Z\nhttps://x.com/i/web/status/1945871634520211842" },
+        { "type": "text", "text": "lang=en" },
+        { "type": "text", "text": "link: https://x.com/eleventhsavi0r/status/1945871634520211842/photo/1\nannotations: Grok(Other,0.6186)" },
+        { "type": "text", "text": "Grok, why...\nThis type of response can and will be given to vulnerable users! No jailbreak here either, just a normal prompt. https://t.co/I8fbLxGef3" },
+        { "type": "text", "text": "Image 1 of 1 — type=photo (1290×1893)\nALT: (no alt text)\nURL: https://pbs.twimg.com/media/GwEf8BNWgAAJzgF.jpg" },
+        { "type": "image", "source": { "type": "url", "url": "https://pbs.twimg.com/media/GwEf8BNWgAAJzgF.jpg" } },
+        { "type": "text", "text": "—" },
+        { "type": "text", "text": "2/6 • @lefthanddraft (Wyatt Walls) • 2025-07-17T17:40:29.000Z\nhttps://x.com/i/web/status/1945901434740064502" },
+        { "type": "text", "text": "lang=en" },
+        { "type": "text", "text": "@eleventhsavi0r Is that with no other convo history and no custom instructions?" },
+        { "type": "text", "text": "references:\nreplied_to: https://x.com/i/web/status/1945871634520211842" },
+        { "type": "text", "text": "—" },
+        { "type": "text", "text": "3/6 • @arm1st1ce (armistice) • 2025-07-17T17:45:13.000Z\nhttps://x.com/i/web/status/1945902625611743540" },
+        { "type": "text", "text": "lang=en" },
+        { "type": "text", "text": "mentions: lefthanddraft" },
+        { "type": "text", "text": "@lefthanddraft Yes to both! Try it." },
+        { "type": "text", "text": "references:\nreplied_to: https://x.com/i/web/status/1945901434740064502" },
+        { "type": "text", "text": "—" },
+        { "type": "text", "text": "4/6 • @lefthanddraft (Wyatt Walls) • 2025-07-17T17:49:22.000Z\nhttps://x.com/i/web/status/1945903667019968743" },
+        { "type": "text", "text": "lang=en" },
+        { "type": "text", "text": "mentions: eleventhsavi0r\nannotations: Grok 4(Other,0.9624); CoT(Other,0.8551)" },
+        { "type": "text", "text": "@eleventhsavi0r I don't have Grok 4. But I believe you.\n\nThat's really bad. I'm surprised CoT did not pick that up. Suicide is normally one of strongest taboos in a model" },
+        { "type": "text", "text": "references:\nreplied_to: https://x.com/i/web/status/1945902625611743540" },
+        { "type": "text", "text": "—" },
+        { "type": "text", "text": "5/6 • @arm1st1ce (armistice) • 2025-07-17T17:57:36.000Z\nhttps://x.com/i/web/status/1945905743049249136" },
+        { "type": "text", "text": "lang=en" },
+        { "type": "text", "text": "mentions: lefthanddraft\nlink: https://x.com/eleventhsavi0r/status/1945905743049249136/photo/1\nannotations: Grok 3(Other,0.983)" },
+        { "type": "text", "text": "@lefthanddraft it works on Grok 3 too, though it’s actually not really as bad https://t.co/6nTLh92Wdz" },
+        { "type": "text", "text": "Image 1 of 1 — type=photo (945×2048)\nALT: (no alt text)\nURL: https://pbs.twimg.com/media/GwE-88zWIAAnJz9.jpg" },
+        { "type": "image", "source": { "type": "url", "url": "https://pbs.twimg.com/media/GwE-88zWIAAnJz9.jpg" } },
+        { "type": "text", "text": "references:\nreplied_to: https://x.com/i/web/status/1945903667019968743" },
+        { "type": "text", "text": "—" },
+        { "type": "text", "text": "6/6 • @lefthanddraft (Wyatt Walls) • 2025-07-17T18:16:14.000Z\nhttps://x.com/i/web/status/1945910430553313660" },
+        { "type": "text", "text": "lang=en" },
+        { "type": "text", "text": "mentions: eleventhsavi0r\nlink: https://x.com/lefthanddraft/status/1945910430553313660/photo/1" },
+        { "type": "text", "text": "@eleventhsavi0r This is quite bad https://t.co/k8arDLjMQX" },
+        { "type": "text", "text": "Image 1 of 1 — type=photo (680×785)\nALT: (no alt text)\nURL: https://pbs.twimg.com/media/GwFDLGwWIAA-i5g.png" },
+        { "type": "image", "source": { "type": "url", "url": "https://pbs.twimg.com/media/GwFDLGwWIAA-i5g.png" } },
+        { "type": "text", "text": "references:\nreplied_to: https://x.com/i/web/status/1945905743049249136" }
+      ]
+    }
+  ]
+}
+
+
