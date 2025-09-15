@@ -366,6 +366,7 @@ class TwitterScraper:
         import tweepy  # type: ignore
 
         token = os.getenv("X_BEARER")
+        print(token)
         if not token:
             raise RuntimeError("Set X_BEARER to your app-only bearer token")
 
