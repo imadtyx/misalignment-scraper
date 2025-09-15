@@ -16,10 +16,10 @@ python -m playwright install chromium
 ### 2) Set API keys (any that apply)
 
 Set your API keys for the models and the platform you plan to use, e.g.:
-
+```bash
 export ANTHROPIC_API_KEY=...
 export X_BEARER=...
-
+```
 Alternatively, you can set the API keys in a `.env` file. See `.env.example` for an example.
 
 ### 3) Scrape and reproduce a misalignment example
